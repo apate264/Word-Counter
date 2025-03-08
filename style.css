@@ -5,6 +5,8 @@
     --background: #0f0f1a;
     --glass-bg: rgba(255, 255, 255, 0.05);
     --box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    --danger-color: #ff4757;
+    --success-color: #2ed573;
 }
 
 * {
@@ -26,7 +28,7 @@ body {
 
 .container {
     width: 100%;
-    max-width: 800px;
+    max-width: 1400px;
     padding: 2rem;
 }
 
@@ -53,6 +55,145 @@ h1 {
     opacity: 0.8;
 }
 
+/* below is new code added */
+
+.main-content {
+    display: grid;
+    grid-template-columns: 300px 1fr 300px;
+    gap: 2rem;
+    align-items: start;
+}
+/* Timer Panel Styles */
+.side-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(4px);
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: var(--box-shadow);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    height: 100%;
+}
+.side-panel h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.timer-display {
+    font-size: 3rem;
+    font-weight: 800;
+    text-align: center;
+    margin: 1rem 0;
+    font-family: 'Courier New', monospace;
+    color: var(--accent-color);
+    text-shadow: 0 0 10px rgba(0, 159, 253, 0.3);
+}
+.timer-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+.timer-btn {
+    background: var(--glass-bg);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.timer-btn:hover {
+    background: var(--accent-color);
+    transform: scale(1.1);
+}
+.timer-presets {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+.preset-btn {
+    background: var(--glass-bg);
+    border: none;
+    border-radius: 15px;
+    padding: 0.5rem 1rem;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.preset-btn.active {
+    background: var(--accent-color);
+}
+/* Notes Panel Styles */
+.notes-input {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+#noteInput {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 0.5rem;
+    color: var(--text-color);
+}
+#addNoteBtn {
+    background: var(--accent-color);
+    border: none;
+    border-radius: 10px;
+    width: 40px;
+    height: 40px;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+#addNoteBtn:hover {
+    transform: scale(1.1);
+}
+.notes-list {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+.note-item {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: slideIn 0.3s ease;
+}
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.note-item .delete-note {
+    background: none;
+    border: none;
+    color: var(--danger-color);
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+.note-item .delete-note:hover {
+    opacity: 1;
+}
+
+
+
+
 .counter-container {
     background: var(--glass-bg);
     backdrop-filter: blur(4px);
@@ -61,6 +202,8 @@ h1 {
     box-shadow: var(--box-shadow);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+
 
 .stats-container {
     display: flex;
@@ -161,6 +304,16 @@ textarea:focus {
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem;
+}
+
+@media (max-width: 1200px) {
+    .main-content {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .side-panel {
+        margin-bottom: 1rem;
+    }
 }
 
 @media (max-width: 600px) {
