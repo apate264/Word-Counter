@@ -16,48 +16,79 @@
             <p class="subtitle">Smart Word & Character Counter</p>
         </div>
 
-        <div class="counter-container">
-            <div class="stats-container">
-                <div class="stat-box words">
-                    <i class="fas fa-paragraph"></i>
-                    <span class="stat-number" id="wordCount">0</span>
-                    <span class="stat-label">Words</span>
+        <div class="main-content">
+            <!-- Study Timer Section -->
+            <div class="side-panel timer-panel">
+                <h2><i class="fas fa-clock"></i> Study Timer</h2>
+                <div class="timer-display">
+                    <span id="minutes">25</span>:<span id="seconds">00</span>
                 </div>
-                <div class="stat-box chars">
-                    <i class="fas fa-text-height"></i>
-                    <span class="stat-number" id="charCount">0</span>
-                    <span class="stat-label">Characters</span>
+                <div class="timer-controls">
+                    <button id="startTimer" class="timer-btn"><i class="fas fa-play"></i></button>
+                    <button id="pauseTimer" class="timer-btn"><i class="fas fa-pause"></i></button>
+                    <button id="resetTimer" class="timer-btn"><i class="fas fa-redo"></i></button>
                 </div>
-            </div>
-
-            <div class="textarea-container">
-                <textarea 
-                    id="textInput" 
-                    placeholder="Start typing or paste your text here..."
-                    aria-label="Text input for counting words and characters"
-                ></textarea>
-                <div class="actions">
-                    <button id="copyBtn" class="action-btn" aria-label="Copy text">
-                        <i class="fas fa-copy"></i>
-                    </button>
-                    <button id="clearBtn" class="action-btn" aria-label="Clear text">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
+                <div class="timer-presets">
+                    <button data-time="25" class="preset-btn active">25m</button>
+                    <button data-time="45" class="preset-btn">45m</button>
+                    <button data-time="60" class="preset-btn">60m</button>
                 </div>
             </div>
 
-            <div class="additional-stats">
-                <div class="stat-item">
-                    <span class="stat-label">Sentences:</span>
-                    <span id="sentenceCount">0</span>
+            <!-- Word Counter Section -->
+            <div class="counter-container">
+                <div class="stats-container">
+                    <div class="stat-box words">
+                        <i class="fas fa-paragraph"></i>
+                        <span class="stat-number" id="wordCount">0</span>
+                        <span class="stat-label">Words</span>
+                    </div>
+                    <div class="stat-box chars">
+                        <i class="fas fa-text-height"></i>
+                        <span class="stat-number" id="charCount">0</span>
+                        <span class="stat-label">Characters</span>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-label">Paragraphs:</span>
-                    <span id="paragraphCount">0</span>
+                <div class="textarea-container">
+                    <textarea 
+                        id="textInput" 
+                        placeholder="Start typing or paste your text here..."
+                        aria-label="Text input for counting words and characters"
+                    ></textarea>
+                    <div class="actions">
+                        <button id="copyBtn" class="action-btn" aria-label="Copy text">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                        <button id="clearBtn" class="action-btn" aria-label="Clear text">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-label">Reading Time:</span>
-                    <span id="readingTime">0 min</span>
+                <div class="additional-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Sentences:</span>
+                        <span id="sentenceCount">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Paragraphs:</span>
+                        <span id="paragraphCount">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Reading Time:</span>
+                        <span id="readingTime">0 min</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notes Section -->
+            <div class="side-panel notes-panel">
+                <h2><i class="fas fa-sticky-note"></i> Quick Notes</h2>
+                <div class="notes-input">
+                    <input type="text" id="noteInput" placeholder="Add a new note...">
+                    <button id="addNoteBtn"><i class="fas fa-plus"></i></button>
+                </div>
+                <div class="notes-list" id="notesList">
+                    <!-- Notes will be added here dynamically -->
                 </div>
             </div>
         </div>
